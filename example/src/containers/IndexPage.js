@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MyComponent } from '../../../src';
+import { Button } from '../../../src';
 
 const IndexPage = () => (
   <div className="index">
-    <MyComponent />
+    <Button
+      value="Button"
+    />
   </div>
 );
 
