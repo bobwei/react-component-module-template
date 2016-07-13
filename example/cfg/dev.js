@@ -42,6 +42,13 @@ config.module.loaders.push({
     config.additionalPaths,
     [ path.join(__dirname, '/../src') ]
   )
+}, {
+  test: /\.(js|jsx)$/,
+  loader: 'babel-loader',
+  include: [].concat(
+    config.additionalPaths,
+    [ path.join(__dirname, '/../../src') ]
+  )
 });
 
 module.exports = config;
