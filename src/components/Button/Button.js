@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = (props = {}) => (
-  <a>
+  <a className="btn btn-default">
     {props.value}
   </a>
 );
