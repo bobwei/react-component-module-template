@@ -1,3 +1,4 @@
-import Button from './components/Button/Button';
+/* eslint-disable import/prefer-default-export */
+import Button from './components/Button';
 
 export { Button };

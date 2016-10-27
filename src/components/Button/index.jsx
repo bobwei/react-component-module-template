@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Button.scss';
+import styles from './index.scss';
 
 const Button = (props = {}) => (
   <a className={`${styles.button} btn btn-default`}>

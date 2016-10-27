@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
@@ -16,11 +15,14 @@ const config = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&localIdentName=[local]__[hash:base64:5]!sass-loader'),
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
     ],
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   },
   plugins: [
     new ExtractTextPlugin('index.css'),
