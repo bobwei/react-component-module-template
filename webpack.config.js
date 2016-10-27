@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, global-require */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
@@ -43,6 +43,11 @@ const config = {
   plugins: [
     new ExtractTextPlugin('index.css'),
   ],
+  postcss() {
+    return [
+      require('autoprefixer'),
+    ];
+  },
 };
 
 module.exports = config;
