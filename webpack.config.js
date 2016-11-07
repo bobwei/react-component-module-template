@@ -1,5 +1,6 @@
 /* eslint-disable max-len, global-require */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const config = {
   entry: './src/index.js',
@@ -7,6 +8,10 @@ const config = {
     path: './lib',
     filename: 'index.js',
     libraryTarget: 'umd',
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
   },
   module: {
     loaders: [
@@ -49,5 +54,19 @@ const config = {
     ];
   },
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        warnings: false,
+      },
+    })
+  );
+  config.plugins.push(new webpack.optimize.DedupePlugin());
+}
 
 module.exports = config;
